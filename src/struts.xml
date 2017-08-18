@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+    <include file="struts-default.xml"/>
+    <package name="ljz" extends="struts-default">
+    
+    <!--用户注册  -->
+        <action name="register" class="regAction">
+            <result name="input">/register.jsp</result>
+            <result name="success">/success.jsp</result>
+            <result name="error">/fail.jsp</result>
+        </action>
+        
+        <!--用户登录  -->
+        <action name="login" class="logAction">
+            <result name="user" type="redirect">book.action</result>
+            <result name="admin" type="redirect">books.action</result>
+            <result name="error">/fail.jsp</result>
+        </action>
+        
+        <!--用户主页  -->
+        <action name="book" class="bookAction">
+            <result name="book">/home.jsp</result>
+            <result name="other">/fail.jsp</result>
+        </action>
+        
+        <!--管理员添加图书  -->
+        <action name="addbook" class="addbookAction">
+            <result name="success" type="redirect">books.action</result>
+            <result name="error">/fail.jsp</result>
+        </action>
+        
+        <!--管理员主页  -->
+        <action name="books" class="booksAction">
+            <result name="books">/homes.jsp</result>
+            <result name="other">/fail.jsp</result>
+        </action>
+        
+        <!--注销登录  -->
+        <action name="loginoff" class="logoffAction">
+            <result name="success">/login.jsp</result>
+        </action>
+        
+        <!--加入购物车  -->
+        <action name="cart" class="cartAction">
+            <result name="success" type="redirect">book.action</result>
+        </action>
+        
+        <!--查看购物车  -->
+        <action name="carts" class="cartsAction">
+            <result name="success">/cart.jsp</result>
+        </action>
+        
+        <!--清空购物车  -->
+        <action name="cartoff" class="cartoffAction">
+            <result name="success" type="redirect">book.action</result>
+        </action>
+        
+        <!--管理员删除书籍  -->
+        <action name="deletebook" class="deletebookAction">
+            <result name="success" type="redirect">books.action</result>
+        </action>
+        
+        <!--跳转到更新页面  -->
+        <action name="updatebook" class="updatebookAction">
+            <result name="success" >/updatebook.jsp</result>
+        </action>
+        
+        <!--管理员更新书籍  -->
+        <action name="updatebooks" class="updatebooksAction">
+            <result name="success" type="redirect">books.action</result>
+            <result name="error">/fail.jsp</result>
+        </action>
+        
+        <!--管理员查找书籍  -->
+        <action name="findbooks" class="findbooksAction">
+            <result name="success">/findbooks.jsp</result>
+        </action>
+        
+        <!--用户查找书籍  -->
+        <action name="findbook" class="findbookAction">
+            <result name="success">/findbook.jsp</result>
+        </action>
+        
+        <!--检查购物车是否为空  -->
+        <action name="checkcart" class="checkcartAction">
+            <result name="success">/pay.jsp</result>
+            <result name="error">/keep.jsp</result>
+        </action>
+        
+        <!--立即购买  -->
+        <action name="buynow" class="buynowAction">
+            <result name="success">/buynow.jsp</result>
+        </action>
+    </package>
+
+    <!-- Add packages here -->
+
+</struts>
